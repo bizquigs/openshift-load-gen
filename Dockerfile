@@ -3,3 +3,4 @@ RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.n
 RUN dnf upgrade -y
 RUN dnf install -y stress-ng
 
+CMD stress-ng --cpu 1 --cpu-method fft
