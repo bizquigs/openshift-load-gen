@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: stressng
+  name: stressng
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: stressng
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: stressng
+    spec:
+      containers:
+      - image: quay.io/jquigley/openshift-load-gen
+        name: openshift-load-gen
+        resources:
+          limits:
+            cpu: '1'
+            memory: 1Gi
+          requests:
+            cpu: '1'
+            memory: 1Gi
+        imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 1
+status: {}
